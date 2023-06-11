@@ -37,7 +37,7 @@ const discussionsController = {
 
   // 🔥 추가 create, updateById, deleteById
   create: (req, res) => {
-    const { title, author, bodyHTML } = req.body;
+    const { title, author, bodyHTML, avatarUrl } = req.body;
 
     if (handleRequestBody(req, res) !== true) {
       return
@@ -60,7 +60,7 @@ const discussionsController = {
       author,
       answer: null,
       bodyHTML,
-      avatarUrl: null
+      avatarUrl,
     };
 
     discussionsData.unshift(newDiscussion);
