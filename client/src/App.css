@@ -106,8 +106,11 @@ nav ul li.active { color:#002b5b; font-weight:bold; }
 .discussion__container .discussion__answered p.complete:before { background-color:#84af63; } 
 .discussion__container .discussion__answered p.inprogress:before { background-color:#f5cd6c; } 
 
-.discussion__container .discussion__delete { opacity:0; position:absolute; top:8px; right:16px; color:var(--text-color-2); transition:all 1s ease; }
-.discussion__container:hover .discussion__delete { opacity:1; }
+.discussion__container .discussion__button { opacity:0; position:absolute; top:8px; right:16px; color:var(--text-color-2); transition:all 1s ease;  }
+.discussion__container:hover .discussion__button { opacity:1; }
+.discussion__container .discussion__button .discussion__delete { margin-left:10px; }
+
+/* .discussion__modal { z-index:10; background-color:#fff; } */
 
 /* paginations */
 .pagination__container { height:40px; display:flex; justify-content:center; align-items:center; margin:12px 0; }

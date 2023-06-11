@@ -1,7 +1,9 @@
+import { useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-regular-svg-icons";
+import avatarImg from "../image.png"
 
-import { useState } from "react";
 
 function Form({ onSubmit }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,30 +32,24 @@ function Form({ onSubmit }) {
     setInputs({
       ...inputs,
       [e.target.name]: e.target.value,
-      // 🔥 [] 계산된 프로퍼티 
     })
   }
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
+    // newDiscussion의 내용은 서버에서 처리 (title, author, bodyHTML avatarUrl만 클라이언트에서 입력)
     const newDiscussion = {
-      id: String(new Date().getTime()),
-      createdAt: new Date().toISOString(),
       title: title,
-      url: "#",
       author: name,
-      answer: null,
       bodyHTML: description,
-      avatarUrl: "image.png",
+      avatarUrl: avatarImg,
     }
-
-    // console.log("FORM SUBMITTED", newDiscussion);
 
     resetForm();
     openCloseForm();
 
-    onSubmit(newDiscussion); // App.js의 onSubmit
+    onSubmit(newDiscussion);
   }
 
   return (

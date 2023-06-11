@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faPen } from "@fortawesome/free-solid-svg-icons";
 
 
-function Discussion({ discussions, onRemove }) {  
+function Discussion({ discussions, onUpdate, onRemove }) {  
 
   const convertToCreateDate = (time) => {
     const createdDate = new Date(time);
@@ -46,10 +46,17 @@ function Discussion({ discussions, onRemove }) {
               { el.answer === null ? "답변대기" : "답변완료" }
             </p>
           </div>
-          <div className="discussion__delete">
-            <button onClick={() => { onRemove(el.id) }}>
-              <FontAwesomeIcon icon={faXmark} />
-            </button>
+          <div className="discussion__button">
+              <button 
+                className="discussion__update"
+                onClick={() => { 
+                  onUpdate(el.id)
+              }}>
+                <FontAwesomeIcon icon={faPen} />
+              </button>
+              <button className="discussion__delete" onClick={() => { onRemove(el.id) }}>
+                <FontAwesomeIcon icon={faXmark} />
+              </button>
           </div>
         </li>
       )) }
